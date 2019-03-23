@@ -90,7 +90,7 @@ module.exports = function check(str, bracketsConfig) {
         } else {
           return isValidStr = false;
         }
-      }                 // ( ({))|| (()) )
+      }
     }
     if (stack.length === 0) {
       return isValidStr = true;
