@@ -44,14 +44,6 @@ module.exports = function check(str, bracketsConfig) {
     return (array.indexOf(elem) !== -1);
   }
 
-  function oppositeBracketType(elem, bracketsConfigMas) {
-    return bracketsConfigMas.indexOf(elem) + 1;
-  }
-
-  function makeTheSameBracketsMas() {
-
-  }
-
   try {
 
     makeBracketsConfigMas(conf);
@@ -65,7 +57,6 @@ module.exports = function check(str, bracketsConfig) {
       return isValidStr = false;
     }
 
-    let preElement;
     for (let i = 0; i < str.length; i++) {
       let isTheSame = (theSameOpenCloseBracketsMas.indexOf(str[i]) !== -1);
 
@@ -81,12 +72,10 @@ module.exports = function check(str, bracketsConfig) {
 
       if (isOpenBracket(str[i], openBracketsConfigMas)) {
         stack.push(str[i]);
-        //preElement = i;
       } else {
         let x = bracketsConfigMas.indexOf(str[i]);
-        if (str[i] === bracketsConfigMas[x]
-          && stack[stack.length - 1] === bracketsConfigMas[x - 1]) {
-          stack.pop()
+        if (str[i] === bracketsConfigMas[x] && stack[stack.length - 1] === bracketsConfigMas[x - 1]) {
+          stack.pop();
         } else {
           return isValidStr = false;
         }
@@ -100,4 +89,4 @@ module.exports = function check(str, bracketsConfig) {
   } catch (err) {
     console.log('Name: ' + err.name + 'Message: ' + err.message);
   }
-}
+};
