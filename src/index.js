@@ -54,7 +54,8 @@ module.exports = function check(str, bracketsConfig) {
     }
 
     if (!checkElemsAlowed(str, bracketsConfigMas)) {
-      return isValidStr = false;
+      isValidStr = false;
+      return isValidStr;
     }
 
     for (let i = 0; i < str.length; i++) {
@@ -77,14 +78,17 @@ module.exports = function check(str, bracketsConfig) {
         if (str[i] === bracketsConfigMas[x] && stack[stack.length - 1] === bracketsConfigMas[x - 1]) {
           stack.pop();
         } else {
-          return isValidStr = false;
+          isValidStr = false;
+          return isValidStr;
         }
       }
     }
     if (stack.length === 0) {
-      return isValidStr = true;
+      isValidStr = true;
+      return isValidStr;
     } else {
-      return isValidStr = false;
+      isValidStr = false;
+      return isValidStr;
     }
   } catch (err) {
     console.log('Name: ' + err.name + 'Message: ' + err.message);
