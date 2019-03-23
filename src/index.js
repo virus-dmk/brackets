@@ -38,7 +38,7 @@ module.exports = function check(str, bracketsConfig) {
 
   function isAllowedStrLength(str) {
     return str.length % 2 === 0;
-  };
+  }
 
   function isOpenBracket(elem, array) {
     return (array.indexOf(elem) !== -1);
